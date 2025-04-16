@@ -11,9 +11,10 @@ def ask():
         return jsonify({"error": "Missing 'question' field"}), 400
 
     result = qa_chain.invoke(query)
+    cleaned_answer = result["result"].replace("\\n", "\n").replace("\\t", "\t")
     return jsonify({
-        "answer": result["result"],
-        "sources": [doc.metadata["source"] for doc in result["source_documents"]]
+        "Answer": cleaned_answer
+#      ,  "sources": [doc.metadata["source"] for doc in result["source_documents"]]
     })
 
 if __name__ == "__main__":
