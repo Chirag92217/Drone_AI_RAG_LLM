@@ -18,8 +18,8 @@ documents = loader.load()
 splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=20)
 chunks = splitter.split_documents(documents)
 
-# Embeddings
-embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+
+embedding=HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-albert-small-v2")
 
 # Vector DB
 persist_directory = "db_folder"
