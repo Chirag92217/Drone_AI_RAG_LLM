@@ -64,4 +64,4 @@ class OllamaLLM(LLM, BaseModel):
 
 # Instantiate LLM + QA Chain
 ollama_llm = OllamaLLM(api_url="http://115.241.186.203/api/generate")
-qa_chain = RetrievalQA.from_chain_type(llm=ollama_llm, chain_type="stuff", retriever=retriever, return_source_documents=True)
+qa_chain = RetrievalQA.from_chain_type(llm=ollama_llm, chain_type="stuff", retriever=retriever, return_source_documents=False)
