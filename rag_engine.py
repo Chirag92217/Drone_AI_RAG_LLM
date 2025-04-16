@@ -63,5 +63,7 @@ class OllamaLLM(LLM, BaseModel):
             return f"Request failed: {e}"
 
 # Instantiate LLM + QA Chain
-ollama_llm = OllamaLLM(api_url="http://115.241.186.203/api/generate")
+ollama_llm = OllamaLLM(api_url="http://115.241.186.203/api/generate",
+system_prompt="You are a knowledgeable and friendly drone expert and trainer. Give Clear and concise explanation to a beginner in simple words. Try to give the smaller and efficient responses,and don't use the steps and numbers give answers in sentence"
+)
 qa_chain = RetrievalQA.from_chain_type(llm=ollama_llm, chain_type="stuff", retriever=retriever, return_source_documents=False)
