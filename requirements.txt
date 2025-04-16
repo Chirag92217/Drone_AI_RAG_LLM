@@ -1,7 +1,8 @@
+flask
 langchain
 langchain-community
 chromadb
 sentence-transformers
 torch
-requests
 pydantic
+requests
